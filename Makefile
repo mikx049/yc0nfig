@@ -6,6 +6,8 @@ ORDER  = core services
 DIRS   = $(patsubst %/Makefile,%,$(wildcard */Makefile))
 REST   = $(filter-out $(ORDER),$(DIRS))
 
+# auto make all the sub makefile's
+
 $(TARGET):
 	@for dir in $(ORDER) $(REST); do \
 		if [ -d "$$dir" ] && [ -f "$$dir/Makefile" ]; then \
